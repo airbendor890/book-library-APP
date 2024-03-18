@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Library</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Library - Book covers</h1>
+        <div class="cover">
+            <form id="cover-add" action="/add" method="post">
+                <input type="text" name="newbook_ISBN" placeholder="New Book - ISBN" autocomplete="off" autofocus="true" />
+                <button class="add" type="submit" name="list" value='' >+</button>
+              </form>
+              <form id="cover-remove" action="/delete" method="post">
+                  <input type="text" name="removebook_Id" placeholder="Remove Book - Id" autocomplete="off" autofocus="true" />
+                  <button class="remove" type="submit" name="list" value='' >-</button>
+                </form>
+        </div>
+
+        <div id="cards" class="cards">
+            <% for(let item of listItems){%>
+                <div class="card-item">
+                    <p>Id-<%= item.id %></p> 
+                    <p>ISBN - <%=item.isbn %></p>
+                    <img src="https://covers.openlibrary.org/b/isbn/<%=item.isbn %>-M.jpg" >
+
+                </div>  
+            <% } %>
+        </div>
+    </div>
+    
+</body>
+</html>
